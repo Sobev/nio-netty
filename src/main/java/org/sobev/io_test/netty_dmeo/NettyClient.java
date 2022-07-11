@@ -25,7 +25,7 @@ public class NettyClient {
                             ch.pipeline().addLast(new NettyClientHandler());
                         }
                     });
-            ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 443).sync();
+            ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", 8080).sync();
             //监听器的回调方法operationComplete()，将会在对应的操作完成时被调用
             channelFuture.addListener(future -> {
                 if (future.isSuccess()) {

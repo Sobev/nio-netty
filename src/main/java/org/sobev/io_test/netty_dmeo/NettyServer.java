@@ -7,6 +7,8 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.timeout.IdleStateHandler;
+import org.sobev.io_test.netty_dmeo.idle.IdleHandler;
 
 /**
  * @author luojx
@@ -29,6 +31,8 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(new NettyServerHandler());
+                            ch.pipeline().addLast(new IdleStateHandler(10, 5, 0));
+                            ch.pipeline().addLast(new IdleHandler());
                         }
                     });
             System.out.println("服务器启动成功");

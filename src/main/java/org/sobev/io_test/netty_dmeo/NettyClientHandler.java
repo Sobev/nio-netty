@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
  * @author luojx
  * @date 2022/5/18 16:02
  */
-@ChannelHandler.Sharable
+//@ChannelHandler.Sharable
 public class NettyClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
